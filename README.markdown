@@ -14,3 +14,8 @@ Scripts assume you've got your Python environment in `./env`. Get
     $ cd path/to/project
     $ virtualenv env
     $ ./env/bin/pip install pycrypto bitarray
+
+###### Credits:
+
+Most if not all methods in `modularmath.py` were copied from
+[Wikibooks](http://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics).
