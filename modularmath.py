@@ -33,12 +33,20 @@ def __inverse_by_eratostenes(target, modulo):
         a, b = b, a - q * b
     return u % modulo
 
-def power(base, power, modulo):
+def power(base, exponent, modulus):
+    return __power_by_python(base, exponent, modulus)
+
+def __power_by_python(base, exponent, modulus):
+    return pow(base, exponent, modulus)
+
+def __power_by_euler(base, exponent, modulus):
     result = 1
-    base %= modulo
-    for i in range(power):
+    base %= modulus
+    i = 0
+    while i < exponent:
         result *= base
-        result %= modulo
+        result %= modulus
+        i += 1
     return result
 
 def are_coprime(a, b):
@@ -96,7 +104,9 @@ if __name__ == '__main__':
         inverse(2, 5) == 3,
         inverse(12767, 256) == 31,
         inverse(12768, 256) == None,
-        power(12, 4, 7) == 2
+        power(12, 4, 7) == 2,
+        power(2, 42, 43) == 1,
+        power(8, 13, 5) == 3
     ]
     for assertion in assertions:
         if assertion:
