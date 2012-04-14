@@ -1,10 +1,10 @@
-###### Running:
+###### RSA
 
-This is a primitive, unfeasibly sluggish and memory devouring implementation of
-RSA. Without any text padding, so it's not even semantically secure. Don't
-bother using it with keys longer than `32` bits, you'll only regret it.
-
-    $ ./my_rsa.py [key_length]
+`modularmath.py` contains a bunch of helper methods implementing efficient
+modular operations, needed to implement encryption using RSA keys. Padding the
+text is done in `padstring.py`. `librsa.py` uses these modules and does
+encryption by hand, while decryption and keys generation is done by
+**PyCrypto**.
 
 ###### Setup:
 
@@ -14,6 +14,12 @@ Scripts assume you've got your Python environment in `./env`. Get
     $ cd path/to/project
     $ virtualenv env
     $ ./env/bin/pip install pycrypto bitarray
+
+###### Testing:
+
+    $ ./modularmath.py
+    $ ./padstring.py
+    $ ./librsa.py
 
 ###### Credits:
 
